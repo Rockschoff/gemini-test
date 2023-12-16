@@ -2,10 +2,7 @@
 
 This simple code tests the google free gemini API in react
 
-Note : You have to create a new file called "config.js" in the "src" directory and enter your API key in there.
-
-Copy paste the following in the "config.js"
-
-export default {
-API_KEY : "GOOGLE_GEMINI_API_KEY"
-}
+*Note* : To run this code you need to define the environment variables in the .env file in the root directory like so
+```
+REACT_APP_GOOGLE_API_KEY : <YOUR_GOOGLE_API_KEY>
+```
