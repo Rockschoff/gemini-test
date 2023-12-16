@@ -1,17 +1,17 @@
 import "./styles.css";
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import {data} from "./config.js";
+
 export default function App() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState("");
-  const api_key = data.API_KEY; // Enter your google API Key here
+  const api_key = process.env.REACT_APP_GOOGLE_API_KEY
   const genAI = new GoogleGenerativeAI(api_key);
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
   const prompt = "say something short and interesting";
 
   async function callAPI() {
-    setLoading("Loading");
+    setLoading("Loading...");
     var p = document.getElementById("textfield").value;
     if (p === "") {
       p = prompt;
@@ -23,7 +23,7 @@ export default function App() {
     setLoading("");
     setOutput(text);
   }
-
+//   console.log(process.env)
   return (
     <div className="App">
       <h1>Hello!</h1>
@@ -43,6 +43,7 @@ export default function App() {
       </form>
       <p>{loading}</p>
       <p>{output}</p>
+      
     </div>
   );
 }
